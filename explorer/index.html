@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thetan Contract Explorer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="progress"><div id="progressBar"></div></div>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">THETAN // CONTRACT MAP</div>
+      <h1>Interactive Contract Explorer</h1>
+    </div>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search contract…  /" aria-label="Search contracts" />
+      <button class="mode active" data-mode="all">All</button>
+      <button class="mode" data-mode="nft">NFT</button>
+      <button class="mode" data-mode="money">Money</button>
+      <button class="mode" data-mode="signed">Signed</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="graph-shell" aria-label="Contract relationship graph">
+      <div class="hint">Click a node → isolate its neighborhood · click empty space → reset</div>
+      <svg id="graph" viewBox="0 0 1200 760" role="img" aria-label="Interactive graph of Thetan Arena contracts"></svg>
+      <div class="legend">
+        <span><i class="dot nft"></i>NFT / asset</span>
+        <span><i class="dot action"></i>service / action</span>
+        <span><i class="dot money"></i>money / balance</span>
+        <span><i class="dot signed"></i>signed flow</span>
+        <span><i class="dot legacy"></i>legacy</span>
+      </div>
+    </section>
+
+    <aside class="panel" id="panel">
+      <div class="panel-kicker">SELECTED CONTRACT</div>
+      <h2 id="panelTitle">ThetanHero</h2>
+      <div class="badges" id="panelBadges"></div>
+
+      <div class="one-line" id="panelSummary"></div>
+
+      <section class="mini-section">
+        <h3>Why it matters</h3>
+        <p id="panelWhy"></p>
+      </section>
+
+      <section class="mini-section">
+        <h3>Connected to</h3>
+        <div id="neighbors" class="neighbor-list"></div>
+      </section>
+
+      <section class="mini-section">
+        <h3>Trust / control</h3>
+        <p id="panelTrust"></p>
+      </section>
+
+      <div class="actions">
+        <a id="sourceLink" class="btn" href="#" target="_blank" rel="noreferrer">Open source ↗</a>
+        <button id="resetBtn" class="btn ghost">Reset graph</button>
+      </div>
+    </aside>
+  </main>
+
+  <section class="flow-strip">
+    <div class="flow-title">FOLLOW A FLOW</div>
+    <button class="flow-btn" data-flow="buy">Buy NFT</button>
+    <button class="flow-btn" data-flow="rent">Rent Hero</button>
+    <button class="flow-btn" data-flow="claim">Claim Reward</button>
+    <button class="flow-btn" data-flow="mint">Mint NFT</button>
+    <div id="flowText" class="flow-text">Pick a flow to highlight its path.</div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
